@@ -152,6 +152,17 @@ Optional:
 | Belobug FSR 4K quality | 3–4 fps, broken face |
 | Series S + 1440p | crash `0x80000003` |
 
+### Additional setting tests (27 November)
+
+| Setting | FPS | Draw | Note |
+|---|---:|---:|---|
+| Port 1 off | 18 | 7,577 | 7–9k baseline 18.5; no gain |
+| Port 1 off + 1080p | 20 | 5,666 | 1080p alone 21; no extra gain |
+| Port 1 off + 1080p + texture look/away | 18 | 5,770 | min 11; worse |
+| Texture look/away | 15 | 10,057 | heavy scene; not comparable |
+
+**Result:** On this PC, 1080p alone is the only small gain (+1 fps); port 1 off and texture look/away did not help. The default #324 build was kept.
+
 ## Known issues
 
 - **4 pipelines still crash** the AMD compiler and are skipped: `0629334f…`, `258bc42c…`, `def4b5eb…`, `e55232ff…`.

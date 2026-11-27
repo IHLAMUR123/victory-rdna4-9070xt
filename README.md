@@ -151,6 +151,17 @@ VICTORY_SKIP_MOVIES=1
 | Belobug FSR 4K quality | 3–4 fps, bozuk yüz |
 | Series S + 1440p | çökme `0x80000003` |
 
+### Ek ayar denemeleri (27 Kasım)
+
+| Ayar | FPS | Draw | Not |
+|---|---:|---:|---|
+| Port 1 kapalı | 18 | 7.577 | 7–9k baseline 18.5; kazanç yok |
+| Port 1 kapalı + 1080p | 20 | 5.666 | 1080p tek başına 21; ek kazanç yok |
+| Port 1 kapalı + 1080p + texture look/away | 18 | 5.770 | min 11; daha kötü |
+| Texture look/away | 15 | 10.057 | ağır sahne; kıyas dışı |
+
+**Sonuç:** Bu PC'de 1080p tek başına en iyi küçük fark (+1 fps); Port 1 kapatmak ve texture look/away net kazanç sağlamadı. Varsayılan #324 build'i korundu.
+
 ## Bilinen sorunlar
 
 - **4 pipeline hâlâ AMD derleyicisinde çöküyor** ve atlanıyor: `0629334f…`, `258bc42c…`, `def4b5eb…`, `e55232ff…`.
