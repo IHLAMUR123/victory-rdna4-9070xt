@@ -1,96 +1,97 @@
-# VIctory RDNA4 — RX 9070 XT build (unofficial)
+# VIctory RDNA4 — RX 9070 XT build (resmî olmayan)
 
-A source-only fork of [VIctory](https://github.com/Marvisak/VIctory) for **AMD RDNA4 (RX 9070 XT)** on Windows. It runs an Xbox Series X|S title natively on the PC from files **you supply**; it contains no game files, assets, keys or executables.
+[English](README.en.md) | **Türkçe**
 
-> **Not affiliated with Rockstar Games or Take-Two Interactive.** This is interoperability/research code. You must own a legally obtained copy of the game. No game files are hosted or linked here. Similar projects have received DMCA takedowns; publishing this source carries that risk.
+AMD RDNA4 (RX 9070 XT) için Windows üzerinde, [VIctory](https://github.com/Marvisak/VIctory) tabanlı **kaynak-only** bir fork. Xbox Series X|S oyununu, **sizin sağladığınız dosyalarla** PC'de natively çalıştırır; bu repoda oyun dosyası, asset, key veya çalıştırılabilir dosya yoktur.
 
-## Transparency: AI-assisted build
+> **Rockstar Games veya Take-Two Interactive ile bağlantılı değildir.** Bu, interoperability/research kodudur. Oyunun yasal olarak edinilmiş bir kopyasına sahip olmalısınız. Burada oyun dosyası barındırılmaz veya linklenmez. Benzer projeler DMCA aldı; bu kaynağı yayınlamak bu riski taşır.
 
-This fork, its merge, the test harness and this README were prepared with an **AI coding agent** (OpenCode, model **DeepSeek V4.1 Flash**) under the direction of the human maintainer. The upstream VIctory / victory-fork / avatarmanz / Belobug / RYUKI code is **human-authored** and remains credited below. The AI proposed and applied changes, ran measurements on the maintainer's PC and drafted this document; the maintainer supplied the game files, made the publishing decision and reviewed the result. AI-assisted work can contain mistakes — reproduce the measurements before relying on them.
+## Şeffaflık: AI destekli build
 
-## Repository contents
+Bu fork, merge, test harness'i ve bu README bir **AI kodlama ajanı** (OpenCode, model **DeepSeek V4.1 Flash**) tarafından, insan maintainer'ın yönlendirmesiyle hazırlandı. Üst kaynak kod (VIctory / victory-fork / avatarmanz / Belobug / RYUKI) **insan geliştiricilerin** ve aşağıda kredilendirilmiştir. AI değişiklikleri önerdi/uyguladı, maintainer'ın PC'sinde ölçümleri çalıştırdı ve bu dokümanı yazdı; maintainer oyun dosyalarını sağladı, yayın kararını verdi ve sonucu inceledi. AI destekli iş hata içerebilir — ölçümleri güvenmeden önce tekrar edin.
 
-**Source only.** This repository contains Rust crates, launchers, docs and two illustrative screenshots. It contains **no game files, no game assets, no executables, no keys, no caches and no saves**. The screenshots are captures of the running title; game imagery, characters and trademarks belong to their respective owners.
+## Depo içeriği
+
+**Sadece kaynak.** Bu repoda Rust crate'leri, launcher'lar, dokümanlar ve iki örnek ekran görüntüsü vardır. **Oyun dosyası, oyun asset'i, çalıştırılabilir dosya, key, cache veya save yoktur.** Görseller oyunun çalışan halinden alınmıştır; oyun görselleri, karakterler ve markalar sahiplerine aittir.
 
 ## Test PC
 
-| Component | |
+| Bileşen | |
 |---|---|
-| GPU | AMD Radeon RX 9070 XT 16 GB (RDNA4), driver 32.0.32029.2010, Resizable BAR on |
-| CPU | AMD Ryzen 7 7800X3D (8 cores / 16 threads) |
-| RAM | 31 GB usable DDR5 |
-| Storage | Samsung 990 PRO NVMe |
+| GPU | AMD Radeon RX 9070 XT 16 GB (RDNA4), sürücü 32.0.32029.2010, Resizable BAR açık |
+| CPU | AMD Ryzen 7 7800X3D (8 çekirdek / 16 iş parçacığı) |
+| RAM | 31 GB kullanılabilir DDR5 |
+| Disk | Samsung 990 PRO NVMe |
 | OS | Windows 11, build 26300 |
-| Page file | 48 GB fixed on C: |
-| Display | 1920×1080 |
+| Page file | C: üzerinde 48 GB sabit |
+| Ekran | 1920×1080 |
 
-## Screenshots
+## Ekran görüntüleri
 
-| Lucia, prison corridor — 25 fps | Boat scene, Series X — 18 fps |
+| Lucia, hapishane koridoru — 25 fps | Tekne sahnesi, Series X — 18 fps |
 |---|---|
-| ![Lucia in the prison corridor at 25 fps](docs/screenshots/lucia-25fps.png) | ![Boat scene at 18 fps](docs/screenshots/boat-18fps.png) |
+| ![Lucia hapishane koridorunda 25 fps](docs/screenshots/lucia-25fps.png) | ![Tekne sahnesi 18 fps](docs/screenshots/boat-18fps.png) |
 
-Both are captures from this build line; frame counters are in the window title. Game imagery and trademarks belong to their owners.
+İkisi de bu build hattından alınmıştır; fps sayaçları pencere başlığındadır. Oyun görselleri ve markalar sahiplerine aittir.
 
-## Status (27 November 2026)
+## Durum (27 Kasım 2026)
 
 | | |
 |---|---|
-| Stage | **In-game** (open world, missions, saves) |
-| Test PC | RX 9070 XT 16 GB, Ryzen 7 7800X3D, 31 GB RAM, 48 GB page file, Windows 11, driver 32.0.32029.2010 |
-| Series X, 5.8–6.2k draws | **19–20 fps** (~50–53 ms) |
-| Series X, 6–9k draws | **18.5 fps** median |
-| Series X, 8–12k draws | **16.8 fps** median |
-| Series X, dense 9.2k | ~14 fps |
-| Series S (warm cache) | **27.1 fps** median, 30.5 peak |
-| Pipeline warm | **83,552 pipelines / 377 s**, **4 failed** (baseline had 70) |
-| Not yet | stable 30 fps, verified 30-minute session, all visual gaps |
+| Aşama | **In-game** (açık dünya, görevler, save'ler) |
+| Series X, 5.8–6.2k draw | **19–20 fps** (~50–53 ms) |
+| Series X, 6–9k draw | **18.5 fps** medyan |
+| Series X, 8–12k draw | **16.8 fps** medyan |
+| Series X, yoğun 9.2k | ~14 fps |
+| Series S (warm cache) | **27.1 fps** medyan, 30.5 tepe |
+| Pipeline warm | **83.552 pipeline / 377 s**, **4 başarısız** (baseline'da 70) |
+| Henüz değil | stabil 30 fps, doğrulanmış 30 dakikalık oturum, tüm görsel boşluklar |
 
-This is **not 30 fps everywhere**. It is a tuned build for one AMD RDNA4 card; expect differences on other GPUs.
+Bu **her yerde 30 fps değildir**. Tek bir AMD RDNA4 kartı için ayarlanmış bir build'dir; diğer GPU'larda farklılık beklenir.
 
-## What this tree adds
+## Bu ağacın ekledikleri
 
-- **Belobug's VEH compiler guard** (`81ebb7b`): an AMD driver compiler crash (`amdxc64+0x861b9f`) is isolated per pipeline instead of ending the run.
-- **Belobug PR #324** (`4363233` here): do not reuse `dx.op.getDimensions` in the REUSE pass. AMD's RDNA4 compiler crashed on 29 `CS_RaytracingResolve` compute pipelines; the warm bad count fell from **70 to 4**.
-- **Renderer port 7** (`VICTORY_PORT_JOURNAL`, avatarmanz `c9c932c`): the heaps' records are split into 64 locked parts; submit-thread waits ~5 ms + 1 ms → ~0.3 ms.
-- **RYUKI-7900XT settings** (YukiRyuu): `WINDOW_KB=1024`, `INPLACE=1`, `TEXTURE_STAGE_MS=80`, `CARD_BUFFERS_MIN_MB=1`, `CARD_BUFFERS_MB=1536`, `ASK_EARLY=2`, `HEAP_SYNC_EARLY=1`, `JOIN_PARTS=16`, `JOIN_LISTS=96`, `TITLE_PRIORITIES=1`, `THIN_THREADS=4`, `UNDER_THREADS=3`, `LAND_THREADS=3`, `FILL_TITLE=1`. On the 7800X3D this cut preparing to ~25 ms in the 6–9k draw range.
-- **cool_fox / CGBJ base** and **fxceless/victory-fork** lineage.
+- **Belobug VEH compiler guard** (`81ebb7b`): AMD sürücü derleyici çökmesi (`amdxc64+0x861b9f`) pipeline başına izole edilir; tüm oturum ölmez.
+- **Belobug PR #324** (burada `4363233`): REUSE pass'inde `dx.op.getDimensions` yeniden kullanılmaz. AMD'nin RDNA4 derleyicisi 29 `CS_RaytracingResolve` compute pipeline'ında çöküyordu; warm bad sayısı **70 → 4**'e düştü.
+- **Renderer port 7** (`VICTORY_PORT_JOURNAL`, avatarmanz `c9c932c`): heap kayıtları 64 kilitli parçaya bölünür; submit thread beklemeleri ~5 ms + 1 ms → ~0.3 ms.
+- **RYUKI-7900XT ayarları** (YukiRyuu): `WINDOW_KB=1024`, `INPLACE=1`, `TEXTURE_STAGE_MS=80`, `CARD_BUFFERS_MIN_MB=1`, `CARD_BUFFERS_MB=1536`, `ASK_EARLY=2`, `HEAP_SYNC_EARLY=1`, `JOIN_PARTS=16`, `JOIN_LISTS=96`, `TITLE_PRIORITIES=1`, `THIN_THREADS=4`, `UNDER_THREADS=3`, `LAND_THREADS=3`, `FILL_TITLE=1`. 7800X3D'de 6–9k draw aralığında preparing ~25 ms'e indi.
+- **cool_fox / CGBJ tabanı** ve **fxceless/victory-fork** hattı.
 
-## Build
+## Derleme
 
 ```powershell
-git clone <this repository>
-cd <this repository>
-copy victory.example.toml victory.toml   # set game_dir, cache_dir, data_dir
+git clone <bu repo>
+cd <bu repo>
+copy victory.example.toml victory.toml   # game_dir, cache_dir, data_dir ayarla
 cargo build --profile diag -p victory --features diagnostics
 ```
 
-Diagnostics are needed for the frame lines and `VICTORY_KEYS` menu automation. A release build is faster per frame but has no diagnostics.
+Frame satırları ve `VICTORY_KEYS` menü otomasyonu için diagnostics gerekir. Release build kare başına daha hızlıdır ama diagnostics içermez.
 
-### Translate shaders and warm pipelines
+### Shader çevirisi ve pipeline warm
 
 ```powershell
 $env:VICTORY_CACHE_DIR = "$env:LOCALAPPDATA\victory\cache"
-.\target\diag\victory.exe shaders "<path>\shaders.rpf"
+.\target\diag\victory.exe shaders "<yol>\shaders.rpf"
 .\target\diag\victory.exe warm --jobs 8
 ```
 
-Warm reads `known-pipelines.bin` written by a run with `VICTORY_PIPELINE_BOOK=1`:
+Warm, `VICTORY_PIPELINE_BOOK=1` ile yapılan bir run'ın yazdığı `known-pipelines.bin` dosyasını okur:
 
 ```powershell
 $env:VICTORY_PIPELINE_BOOK = "1"
-.\target\diag\victory.exe run --console series-x "<path>\game_scarlett_master.exe" --execute
-# play a few minutes, close, then:
+.\target\diag\victory.exe run --console series-x "<yol>\game_scarlett_master.exe" --execute
+# birkaç dakika oyna, kapat, sonra:
 .\target\diag\victory.exe warm --jobs 8
 ```
 
-### Play
+### Oynatma
 
 ```powershell
-.\target\diag\victory.exe run --console series-x "<path>\game_scarlett_master.exe" --execute
+.\target\diag\victory.exe run --console series-x "<yol>\game_scarlett_master.exe" --execute
 ```
 
-## Settings used for the results
+## Sonuçlar için kullanılan ayarlar
 
 ```text
 VICTORY_RELAY=2
@@ -132,46 +133,46 @@ VICTORY_AMBIENT=0.8
 VICTORY_SKIP_MOVIES=1
 ```
 
-Optional:
-- `VICTORY_OUTPUT=1920x1080` — **21 fps** vs 20 at ~5.8k draws in our test; small gain, softer image.
-- `VICTORY_PORT_CONSTANTS=0` — Mavis reports the sky flickers with port 1 on this card; disabling it may cost a little speed.
-- `VICTORY_TEXTURE_LOOK_MS=500`, `VICTORY_TEXTURE_AWAY_MS=15000` — Mavis's texture queue tuning.
+İsteğe bağlı:
+- `VICTORY_OUTPUT=1920x1080` — testte **21 fps** (20'ye karşı, ~5.8k draw); küçük kazanç, daha yumuşak görüntü.
+- `VICTORY_PORT_CONSTANTS=0` — Mavis, bu kartta port 1 açıkken gökyüzünün flicker yaptığını bildiriyor; kapatmak biraz hız kaybettirebilir.
+- `VICTORY_TEXTURE_LOOK_MS=500`, `VICTORY_TEXTURE_AWAY_MS=15000` — Mavis'in texture kuyruğu ayarı.
 
-## What did not help (on this PC)
+## Bu PC'de işe yaramayanlar
 
-| Change | Result |
+| Değişiklik | Sonuç |
 |---|---|
-| Xavi `4c210de` place_copy | 8.8 fps at 7–9k (baseline 18.5) |
-| cool_fox `5e0c9ab` Port 1 page order | 15.1 / 10.6 at 7–13k |
+| Xavi `4c210de` place_copy | 7–9k'da 8.8 fps (baseline 18.5) |
+| cool_fox `5e0c9ab` Port 1 sayfa sırası | 7–13k'da 15.1 / 10.6 |
 | fxceless `a463dcb` texture alias pin | 12.1 / 14.0 |
-| All three together | 12.1 / 14.0 |
-| Full A-settings set (SHADER_OPT=59, levels-on-demand, copies-in-place=0, texture store, 1080p…) | 1 fps / 1.28 s — unusable |
-| `WARM_BAD=0` warm retry | 0 of 70 recovered |
-| Belobug FSR 4K quality | 3–4 fps, broken face |
-| Series S + 1440p | crash `0x80000003` |
+| Üçü birden | 12.1 / 14.0 |
+| Tüm A-ayar seti (SHADER_OPT=59, levels-on-demand, copies-in-place=0, texture store, 1080p…) | 1 fps / 1.28 s — kullanılamaz |
+| `WARM_BAD=0` warm retry | 70'in 0'ı kurtuldu |
+| Belobug FSR 4K quality | 3–4 fps, bozuk yüz |
+| Series S + 1440p | çökme `0x80000003` |
 
-## Known issues
+## Bilinen sorunlar
 
-- **4 pipelines still crash** the AMD compiler and are skipped: `0629334f…`, `258bc42c…`, `def4b5eb…`, `e55232ff…`.
-- Some draws may still be missing; a transparent car / missing body parts has been reported on related builds. Not fully verified after #324.
-- Opening screen can flicker with `WINDOW_KB=1024`; RYUKI's `ROOT_WINDOW_MB` fix is not in this tree.
-- Textures arrive late; no ray-traced indirect light (`AMBIENT=0.8` stand-in).
-- 31 GB RAM is tight (30+ GB commit); close Chrome/Discord. 48 GB page file recommended.
-- 30-minute stability not yet verified by us.
-- The title's 30 fps cap remains; menus/cutscenes are 30.
+- **4 pipeline hâlâ AMD derleyicisinde çöküyor** ve atlanıyor: `0629334f…`, `258bc42c…`, `def4b5eb…`, `e55232ff…`.
+- Bazı draw'lar hâlâ eksik olabilir; ilgili build'lerde yarı saydam araç / eksik gövde parçaları bildirildi. #324 sonrası tam doğrulanmadı.
+- `WINDOW_KB=1024` ile açılış ekranı flicker yapabilir; RYUKI'nin `ROOT_WINDOW_MB` fix'i bu ağaçta yok.
+- Dokular geç geliyor; ray-traced dolaylı ışık yok (`AMBIENT=0.8` stand-in).
+- 31 GB RAM sınırda (30+ GB commit); Chrome/Discord kapatın. 48 GB page file önerilir.
+- 30 dakikalık stabilite tarafımızdan henüz doğrulanmadı.
+- Oyunun 30 fps kilidi sürüyor; menü/cutscene'ler 30.
 
-## Credits
+## Krediler
 
-This is a tree of other people's work. All upstream history and authors are kept.
+Bu, başkalarının emeğinin üzerine kurulu bir ağaçtır. Tüm upstream geçmiş ve yazarlar korunmuştur.
 
 - **Marvisak / VIctory** — loader, HLE runtime, D3D12 backend, shader recompiler.
-- **fxceless / victory-fork** — AMD fixes, base of this line.
-- **avatarmanz / VIctory-7900XTX** — renderer ports 1/2/5/6/7, RDNA3 tuning.
-- **Belobug / VIctory-Belobug-AMD** — VEH compiler guard, RDNA4 compiler fix (#324), magenta/VRAM fixes.
-- **YukiRyuu / RYUKI-7900XT** — RX 7900 XT settings and findings used as the starting preset.
-- **codec-d / cool_fox (CGBJ)** and the cool_fox mirrors — the original tuned tree.
-- **DexNom, myokex, ka1qux, ScarlettPort, klbf-lab** and the wider community — fixes and measurements.
+- **fxceless / victory-fork** — AMD fix'leri, bu hattın tabanı.
+- **avatarmanz / VIctory-7900XTX** — renderer port 1/2/5/6/7, RDNA3 tuning.
+- **Belobug / VIctory-Belobug-AMD** — VEH compiler guard, RDNA4 compiler fix (#324), magenta/VRAM fix'leri.
+- **YukiRyuu / RYUKI-7900XT** — RX 7900 XT ayarları ve bulguları; başlangıç preset'i.
+- **codec-d / cool_fox (CGBJ)** ve cool_fox mirror'ları — orijinal tuned ağaç.
+- **DexNom, myokex, ka1qux, ScarlettPort, klbf-lab** ve daha geniş topluluk — fix'ler ve ölçümler.
 
-## License
+## Lisans
 
-GPL-3.0-or-later, following VIctory. Include the upstream `LICENSE` and keep copyright notices. No game files, no assets, no keys.
+GPL-3.0-or-later, VIctory'yi takip eder. Upstream `LICENSE` dosyasını ve copyright notlarını koruyun. Oyun dosyası, asset, key yok.
