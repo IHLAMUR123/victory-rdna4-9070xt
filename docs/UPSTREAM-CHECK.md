@@ -31,13 +31,13 @@ Bu not, yayınlanan `veh-324` build'inin (bu repo) 27 Kasım 2026 akşamındaki 
 
 | Çalıştırma | FPS | Draw | Not |
 |---|---:|---:|---|
-| a-publier, otomatik Enter | **19–20** (18 örnek) | 6.6–6.9k | 90 s boyunca stabildi; HUD ve dokular iyi |
+| a-publier, otomatik Enter | **19–20** (18 örnek) | 6.6–6.9k | 90 s boyunca stabildi; HUD ve dokular sağlam göründü |
 | a-publier, otomatik Enter (snapshot sonrası) | 10 (medyan) | 5.7k | 3–18 arası; görev/sahne değişti |
 | a-publier, statik (sadece menü Enter'ları) | 11 (medyan) | 6.6k | 1–12 arası; aynı save farklı sahne |
 | **#324, statik** | **16 (medyan)** | **7.7k** | 10–17 arası; aynı save |
 | #324, otomatik Enter | 18 (medyan) | 6.6–7.0k | 14–19 |
 
-**Sonuç:** a-publier'in HUD'u ve dokuları gözle görülür şekilde daha iyi (silahlar çarkı, para, sağlık barları çalışıyor). FPS ise sahneye göre 11–20 arasında değişiyor; #324 ile arasında **kesin bir fark yok**. Aynı save'den farklı görev noktalarına yüklenildiği için bu testler kontrollü değil. a-publier'i yayınlanan varsayılan yapmadan önce sabit bir benchmark save'i ile tekrar ölçmek gerekir.
+**Sonuç:** a-publier'de HUD (sağlık, para, silah çarkı) ve dokular sağlam göründü; ancak #324 ile **aynı sahnede doğrudan kıyaslanmadı**. FPS sahneye göre 11–20 arasında değişiyor; #324 ile arasında **kesin bir fark yok**. Aynı save'den farklı görev noktalarına yüklenildiği için bu testler kontrollü değil. a-publier'i yayınlanan varsayılan yapmadan önce sabit bir benchmark save'i ile tekrar ölçmek gerekir.
 
 ## Yeni repolar (27 Kasım)
 

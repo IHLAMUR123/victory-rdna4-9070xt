@@ -70,7 +70,7 @@ This tree is a manual port of #324 onto the port-7 base (`c9c932c`). Upstream mo
 
 Details: [`docs/UPSTREAM-CHECK.md`](docs/UPSTREAM-CHECK.md).
 
-**Short test:** Belobug a-publier's HUD and textures look better; FPS ranged 11–20 depending on the scene, with no clear win over #324. The published default remains **#324**; a-publier is a candidate. Next: merge `PORT_CONSTANTS_ORDER` and A/B on a fixed save.
+**Short test:** Belobug a-publier's HUD and textures rendered correctly; FPS ranged 11–20 depending on the scene, and it was not compared with #324 in the same scene. The published default remains **#324**; a-publier is a candidate. Next: merge `PORT_CONSTANTS_ORDER` and A/B on a fixed save.
 
 ## Build
 

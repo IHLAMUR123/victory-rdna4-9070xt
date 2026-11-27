@@ -69,7 +69,7 @@ Bu ağaç, #324'ün port-7 tabanına (`c9c932c`) manuel portudur. Yayından sonr
 
 Ayrıntı: [`docs/UPSTREAM-CHECK.md`](docs/UPSTREAM-CHECK.md).
 
-**Kısa test:** Belobug a-publier'in HUD'u ve dokuları gözle daha iyi; FPS sahneye göre 11–20 arasında değişti, #324 ile kesin bir fark yok. Yayınlanan varsayılan **#324**; a-publier aday. Sonraki adım: a-publier + `PORT_CONSTANTS_ORDER` birleştirip sabit save'de A/B yapmak.
+**Kısa test:** Belobug a-publier'de HUD ve dokular sağlam göründü; FPS sahneye göre 11–20 arasında değişti, #324 ile aynı sahnede doğrudan kıyas yapılmadı. Yayınlanan varsayılan **#324**; a-publier aday. Sonraki adım: a-publier + `PORT_CONSTANTS_ORDER` birleştirip sabit save'de A/B yapmak.
 
 ## Derleme
 
