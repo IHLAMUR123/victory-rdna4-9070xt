@@ -57,6 +57,20 @@ Bu **her yerde 30 fps değildir**. Tek bir AMD RDNA4 kartı için ayarlanmış b
 - **RYUKI-7900XT ayarları** (YukiRyuu): `WINDOW_KB=1024`, `INPLACE=1`, `TEXTURE_STAGE_MS=80`, `CARD_BUFFERS_MIN_MB=1`, `CARD_BUFFERS_MB=1536`, `ASK_EARLY=2`, `HEAP_SYNC_EARLY=1`, `JOIN_PARTS=16`, `JOIN_LISTS=96`, `TITLE_PRIORITIES=1`, `THIN_THREADS=4`, `UNDER_THREADS=3`, `LAND_THREADS=3`, `FILL_TITLE=1`. 7800X3D'de 6–9k draw aralığında preparing ~25 ms'e indi.
 - **cool_fox / CGBJ tabanı** ve **fxceless/victory-fork** hattı.
 
+## Upstream kontrolü (27 Kasım 2026)
+
+Bu ağaç, #324'ün port-7 tabanına (`c9c932c`) manuel portudur. Yayından sonra upstream ilerledi:
+
+| Repo | Commit | Bizde olmayan |
+|---|---|---|
+| **Belobug / a-publier** | `4eb6cfd` | RX 9070 XT fix + HUD, texture upload prelude, port 2 sync, FSR4K (52 commit ileri) |
+| avatarmanz / main | `014d52d` | `VICTORY_PORT_CONSTANTS_ORDER` (ağaç/avize pop-in, lamba odası flicker), port RT |
+| fxceless / main | `9a9091d` | RT builder (0.2–3 fps, oyun için kullanılamaz), #1320/#1321/#1324/#1336 |
+
+Ayrıntı: [`docs/UPSTREAM-CHECK.md`](docs/UPSTREAM-CHECK.md).
+
+**Kısa test:** Belobug a-publier'in HUD'u ve dokuları gözle daha iyi; FPS sahneye göre 11–20 arasında değişti, #324 ile kesin bir fark yok. Yayınlanan varsayılan **#324**; a-publier aday. Sonraki adım: a-publier + `PORT_CONSTANTS_ORDER` birleştirip sabit save'de A/B yapmak.
+
 ## Derleme
 
 ```powershell

@@ -58,6 +58,20 @@ This is **not 30 fps everywhere**. It is a tuned build for one AMD RDNA4 card; e
 - **RYUKI-7900XT settings** (YukiRyuu): `WINDOW_KB=1024`, `INPLACE=1`, `TEXTURE_STAGE_MS=80`, `CARD_BUFFERS_MIN_MB=1`, `CARD_BUFFERS_MB=1536`, `ASK_EARLY=2`, `HEAP_SYNC_EARLY=1`, `JOIN_PARTS=16`, `JOIN_LISTS=96`, `TITLE_PRIORITIES=1`, `THIN_THREADS=4`, `UNDER_THREADS=3`, `LAND_THREADS=3`, `FILL_TITLE=1`. On the 7800X3D this cut preparing to ~25 ms in the 6–9k draw range.
 - **cool_fox / CGBJ base** and **fxceless/victory-fork** lineage.
 
+## Upstream check (27 November 2026)
+
+This tree is a manual port of #324 onto the port-7 base (`c9c932c`). Upstream moved after publication:
+
+| Repo | Commit | Not in this tree |
+|---|---|---|
+| **Belobug / a-publier** | `4eb6cfd` | RX 9070 XT fixes + HUD, texture upload prelude, port 2 sync, FSR4K (52 commits ahead) |
+| avatarmanz / main | `014d52d` | `VICTORY_PORT_CONSTANTS_ORDER` (tree/palm pop-in, lamp-room flicker), port RT |
+| fxceless / main | `9a9091d` | RT builder (0.2–3 fps, unusable for play), #1320/#1321/#1324/#1336 |
+
+Details: [`docs/UPSTREAM-CHECK.md`](docs/UPSTREAM-CHECK.md).
+
+**Short test:** Belobug a-publier's HUD and textures look better; FPS ranged 11–20 depending on the scene, with no clear win over #324. The published default remains **#324**; a-publier is a candidate. Next: merge `PORT_CONSTANTS_ORDER` and A/B on a fixed save.
+
 ## Build
 
 ```powershell
